@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script type="text/javascript">
+     function changeGreeting() {
+         document.getElementsByTagName('h1')[0].innerHTML = 'Welcome to MashupStack'
+     }
+    </script>
+<title>Home</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button onclick="changeGreeting()">Click</button>
+</body>
+</html>

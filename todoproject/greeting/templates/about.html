@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script type="text/javascript">
+     function changeGreeting() {
+         document.getElementsByTagName('p')[0].innerHTML = "it's about page"
+     }
+    </script>
+<title>About</title>
+</head>
+<body>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque corrupti ex nesciunt explicabo est accusamus culpa, et voluptatibus aspernatur dicta non placeat laborum quasi nisi? Animi perferendis repudiandae placeat maiores?it's about page</p>
+    <button onclick="changeGreeting()">Click</button>
+</body>
+</html>
