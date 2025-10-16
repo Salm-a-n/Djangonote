@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from gallery import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.redirect_to_gallery), 
+    path('gallary', views.home, name='home'),
+    path('contact', views.contact, name='contact')
 ]

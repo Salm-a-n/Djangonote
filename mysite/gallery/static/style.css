@@ -1,0 +1,12 @@
+.red {
+  color: hsl(0, 91%, 48%);
+  font-weight: bold;
+}
+
+.green {
+  color: hsl(133, 86%, 49%); 
+  font-style: italic;
+}
+p{
+    color:blue
+}
