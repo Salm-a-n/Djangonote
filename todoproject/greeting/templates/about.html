@@ -3,11 +3,7 @@
 <head>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-    <script type="text/javascript">
-     function changeGreeting() {
-         document.getElementsByTagName('p')[0].innerHTML = "it's about page"
-     }
-    </script>
+    <script src="{% static 'script.js' %}"></script>
 <title>About</title>
 </head>
 <body>
