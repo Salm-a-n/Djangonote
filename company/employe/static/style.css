@@ -1,0 +1,31 @@
+.full{
+    color: green;
+    display: inline;
+    font-weight: bold;
+    margin-right: 10px;
+
+}
+.half{
+    color: red;
+    display: inline;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.name{
+    margin-right: 10px;
+}
+.job{
+    margin-right: 10px;
+}
+.salary{
+    margin-right: 10px;
+}
+body{
+    background-color: lightskyblue;
+    height:100vh;
+}
+p{
+    display: inline;
+    font-weight: 400;
+    font-size: large;
+}

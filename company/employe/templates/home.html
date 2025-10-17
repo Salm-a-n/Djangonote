@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- <script src="{% static 'script.js' %}"></script>  -->
+</head>
+<body>
+{% if my_objects %}
+        <ul>
+        {% for obj in my_objects %}
+            <li>
+                <p><span class="name"> NAME: {{ obj.name }} </span> <span class="job"> JOB: {{ obj.job_title }} </span> <span class="salary" >SALARY: {{ obj.salary }} </span></p>
+                {% if obj.full_time %}
+                    <p class="full">Full_Time</p>
+                    {% else %}
+                    <p class="half">Part-Time</p>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+    <p> No list found</p>
+{% endif %}
+</body>
+</html>
+
