@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result Page</title>
+</head>
+<body>
+    {% if form_data %}
+    <h2>Welcome {{ name }},</h2>
+    <h3>Full form data received:</h3>
+    <ul>
+        {% for key, value in form_data.items %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h2>No Data Found </h2>
+    {% endif %}
+</body>
+</html>
