@@ -20,5 +20,6 @@ from movie_app_1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.movies, name="movies")
+    path('',views.movies, name="movies"),
+    path('contact/',views.contact,name="contact")
 ]
