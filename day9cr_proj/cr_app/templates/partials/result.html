@@ -1,0 +1,7 @@
+<h2>Result for {{ name }}</h2>
+<ul>
+  {% for subject, mark in result.items %}
+    <li>{{ subject }}: {{ mark }}%</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'index' %}">← Back to Home</a>
