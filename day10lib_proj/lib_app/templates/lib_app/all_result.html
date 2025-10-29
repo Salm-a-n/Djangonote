@@ -25,8 +25,7 @@
     </tr>
     {% endfor %}
 </table> 
-<div>
-    {% if page_obj.has_previous %}
+    <!-- {% if page_obj.has_previous %}
             
                 <a href="?page=1" class="page-link">&laquo; first</a>
                 <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="previous">&laquo; previous</a>
@@ -43,9 +42,20 @@
         {% if page_obj.has_next %}
                 <a href="?page={{ page_obj.next_page_number }}" class="page-link">next &raquo;</a>
                 <a href="?page={{ page_obj.paginator.num_pages }}" class="page-link">last &raquo;</a>
-        {% endif %}
+        {% endif %} -->
 
-</div>
+<div>
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+ </div>
+
 </body>
 
 </html>
