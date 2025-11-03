@@ -43,9 +43,7 @@ INSTALLED_APPS = [
 
 # Looking to send emails in production? Check out our Email API/SMTP product!
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '509ff501a6dd50'
-EMAIL_HOST_PASSWORD = 'b3b7b91a4151bc'
+# import from keep notes 
 EMAIL_PORT = '2525'
 
 MIDDLEWARE = [
