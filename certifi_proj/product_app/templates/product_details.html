@@ -1,0 +1,19 @@
+<h2>All Products</h2>
+<table border="1" cellspacing="0" cellpadding="5">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+  {% for product in products %}
+  <tr>
+    <td>{{ product.name }}</td>
+    <td>{{ product.description }}</td>
+    <td>₹{{ product.price }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<br>
+<a href="{% url 'download_all_products_pdf' %}">📄 Download All Products as PDF</a><br>
+<a href="{% url 'send_all_products_email' %}">📧 Send All Products by Email</a>

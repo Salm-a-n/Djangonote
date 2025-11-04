@@ -37,13 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'certifi_app'
+    'certifi_app',
+    'product_app',
 ]
 
 
 # Looking to send emails in production? Check out our Email API/SMTP product!
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # import from keep notes 
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '509ff501a6dd50'
+EMAIL_HOST_PASSWORD = 'b3b7b91a4151bc'
 EMAIL_PORT = '2525'
 
 MIDDLEWARE = [
