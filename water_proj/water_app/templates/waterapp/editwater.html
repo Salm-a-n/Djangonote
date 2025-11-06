@@ -1,0 +1,11 @@
+{% extends 'layout/app_layout.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Edit Water Intake</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>
+{% endblock %}

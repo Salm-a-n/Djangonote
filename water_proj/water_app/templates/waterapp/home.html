@@ -1,0 +1,13 @@
+{% extends 'layout/app_layout.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Welcome to Daily Water Intake Tracker</h2>
+        <p>Hello, {{ user.username }}! Track your daily water intake below.</p>
+         <p class="mt-4">
+            Staying hydrated is one of the simplest yet most powerful habits for maintaining good health. This page allows you to record your daily water intake, helping you build consistency and awareness around your hydration goals. By logging your water consumption each day, you create a personal history that reflects your commitment to wellness. Whether you're an athlete, a student, or someone simply trying to feel better, tracking your intake can reveal patterns and encourage better habits. Once you've added your intake for today, the system will prevent duplicate entries to ensure accuracy. If you're logged in, your data is securely stored and only visible to you. If you're not logged in, you can explore the site and learn more—but to begin tracking, you'll need to create an account or sign in. This feature is part of a broader effort to help you take control of your health, one glass at a time. So take a moment, reflect on your day, and record your progress. Every drop counts.
+         </p>
+</div>
+<div class="container mt-4">
+  <p class="para">This page offers a personalized health tracking experience where registered users can monitor and compare their daily water intake with ease. Once logged in, users gain access to a smart comparison tool that allows them to select any two dates from their intake history and instantly view the difference in hydration levels. This feature is designed to help individuals stay consistent with their water goals, identify patterns, and make informed lifestyle adjustments. To get started, simply register for a free account or log in if you're already a member. The system ensures that only valid dates with recorded intake are shown, preventing confusion and enhancing accuracy. Whether you're aiming to improve your hydration habits or just curious about your progress, this page empowers you with clear insights and a user-friendly interface tailored to your wellness journey.</p>
+</div>
+{% endblock %}

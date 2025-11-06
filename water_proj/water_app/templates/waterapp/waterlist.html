@@ -1,0 +1,56 @@
+{% extends  'layout/app_layout.html'%}
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <!-- <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+            <div class="alert alert-success alert-dismissible fade show"><button type="button" class="close" data-dismiss="alert">&times;</button> {{ message }}</div>
+        </div>
+    {% endfor %}
+{% endif %}
+<div class="container mt-4">
+    <h2>Your Water Intake History</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time Added</th>
+                <th>Quantity (ml)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for intake in intakes %}
+            <tr>
+                <td>{{ intake.date }}</td>
+                <td>{{ intake.time_added|date:"H:i:s" }}</td>
+                <td>{{ intake.quantity }}</td>
+                <td>
+                    <a href="{% url 'editwater' intake.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'deletewater' intake.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No intake records found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</ul>
+    <div class="container ">
+       <ul class="pagination justify-content-center">
+            {% if intakes.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ intakes.previous_page_number }}">Previous</a></li>
+            {% endif %}
+            <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+            <li class="page-item active"><span class="page-link">{{ intakes.number }}</span></li>
+            {% if intakes.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ intakes.next_page_number }}">Next</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
