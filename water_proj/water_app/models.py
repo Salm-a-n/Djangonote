@@ -1,10 +1,11 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import User
 
 class WaterIntakeModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField(default=timezone.now)
     time_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:

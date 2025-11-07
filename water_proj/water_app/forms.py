@@ -18,8 +18,8 @@ class WaterIntakeForm(forms.ModelForm):
         return intake
 
 class DateRangeForm(forms.Form):
-    start_date = forms.ChoiceField(label="Start Date")
-    end_date = forms.ChoiceField(label="End Date")
+    start_date = forms.DateField(label="Start Date", widget=forms.Select)
+    end_date = forms.DateField(label="End Date", widget=forms.Select)
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
@@ -27,6 +27,6 @@ class DateRangeForm(forms.Form):
 
         if user:
             dates = WaterIntakeModel.objects.filter(user=user).order_by('-date').values_list('date', flat=True)
-            choices = [(date.strftime('%Y-%m-%d'), date.strftime('%Y-%m-%d')) for date in dates]
-            self.fields['start_date'].choices = choices
-            self.fields['end_date'].choices = choices
+            choices = [(date, date.strftime('%Y-%m-%d')) for date in dates]
+            self.fields['start_date'].widget.choices = choices
+            self.fields['end_date'].widget.choices = choices

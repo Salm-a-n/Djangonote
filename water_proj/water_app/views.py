@@ -3,7 +3,6 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login,logout
 from django.utils import timezone
-from datetime import datetime
 from django.contrib import messages
 from .forms import WaterIntakeForm,DateRangeForm
 from .models import WaterIntakeModel
@@ -104,10 +103,9 @@ def intake_difference(request):
     if request.method == 'POST':
         form = DateRangeForm(request.POST, user=request.user)
         if form.is_valid():
-            # start = form.cleaned_data['start_date']
-            # end = form.cleaned_data['end_date']
-            start = datetime.strptime(form.cleaned_data['start_date'], '%Y-%m-%d').date()
-            end = datetime.strptime(form.cleaned_data['end_date'], '%Y-%m-%d').date()
+            start = form.cleaned_data['start_date']
+            end = form.cleaned_data['end_date']
+            
             if start == end:
                 messages.error(request, "You are selecting the same date. Please choose two different dates.")
                 return redirect('intake_difference')
