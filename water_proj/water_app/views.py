@@ -99,6 +99,12 @@ def delete_intake(request, pk):
 def intake_difference(request):
     result = None
     status=None
+    has_data = WaterIntakeModel.objects.filter(user=request.user).exists()
+    if not has_data:
+        messages.error(request, "You haven't added any water intake yet. you can add water intake here ")
+        return redirect('addwater')
+
+
     form = DateRangeForm(user=request.user)
 
     if request.method == 'POST':
@@ -107,14 +113,13 @@ def intake_difference(request):
             start = form.cleaned_data['start_date']
             end = form.cleaned_data['end_date']
             
+            
             if start == end:
-                messages.error(request, "You are selecting the same date. Please choose two different dates.")
+                messages.error(request, "You are selecting the same date. Please choose two different dates.You can see what dates are available in the All List in the navbar ")
                 return redirect('intake_difference')
             start_entry = WaterIntakeModel.objects.filter(user=request.user, date=start).first()
             end_entry = WaterIntakeModel.objects.filter(user=request.user, date=end).first()
-            if not start_entry or not end_entry:
-                messages.error(request, "Intake data not found for one or both selected dates.")
-                return redirect('intake_difference')
+            
             result = abs(end_entry.quantity - start_entry.quantity)
             if end_entry.quantity < start_entry.quantity:
                 status = "Your water intake was decreased"

@@ -29,7 +29,7 @@
             Difference in intake between selected dates: <strong>{{ result }}ml</strong> 
         </div>
     {% endif %}
-     {% if status %}
+     {% if status is not None %}
         <div class="alert alert-primary mt-2">
             {{ status }}
         </div>
