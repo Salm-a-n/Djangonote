@@ -98,6 +98,7 @@ def delete_intake(request, pk):
 @login_required(login_url='/login/')
 def intake_difference(request):
     result = None
+    status=None
     form = DateRangeForm(user=request.user)
 
     if request.method == 'POST':
@@ -115,6 +116,14 @@ def intake_difference(request):
                 messages.error(request, "Intake data not found for one or both selected dates.")
                 return redirect('intake_difference')
             result = abs(end_entry.quantity - start_entry.quantity)
+            if end_entry.quantity < start_entry.quantity:
+                status = "Your water intake was decreased"
+            elif end_entry.quantity > start_entry.quantity:
+                status = "Good! Your water intake was increased"
+            else:
+                status =" same intake"
 
-    return render(request, 'waterapp/intakedifference.html', {'form': form, 'result': result})
+
+
+    return render(request, 'waterapp/intakedifference.html', {'form': form, 'result': result,'status':status})
 

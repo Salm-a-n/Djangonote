@@ -26,8 +26,14 @@
 
     {% if result is not None %}
         <div class="alert alert-info mt-4">
-            Difference in intake between selected dates: <strong>{{ result }}ml</strong>
+            Difference in intake between selected dates: <strong>{{ result }}ml</strong> 
         </div>
     {% endif %}
+     {% if status %}
+        <div class="alert alert-primary mt-2">
+            {{ status }}
+        </div>
+    {% endif %}
+
 </div>
 {% endblock %}
