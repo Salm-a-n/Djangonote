@@ -47,10 +47,8 @@ def logout_view(request):
 def add_water(request):
     today = timezone.now().date()
     already_added = WaterIntakeModel.objects.filter(user=request.user, date=today).exists()
-
     if already_added:
-        messages.error(request, "You've already added your intake for today.")
-        return redirect('waterlist')
+        return render(request, 'waterapp/addwater.html',{'messages': "You've already added your intake for today."})
 
     if request.method == 'POST':
         form = WaterIntakeForm(request.POST, user=request.user)
@@ -67,7 +65,7 @@ def add_water(request):
 @login_required(login_url='/login/')
 def waterlist(request):
     intakes = WaterIntakeModel.objects.filter(user=request.user).order_by('-date')
-    paginator = Paginator(intakes, 3) 
+    paginator = Paginator(intakes,1) 
     page = request.GET.get('page')
     intakes_page = paginator.get_page(page)
     return render(request, 'waterapp/waterlist.html', {'intakes': intakes_page})
@@ -99,8 +97,8 @@ def delete_intake(request, pk):
 def intake_difference(request):
     result = None
     status=None
-    has_data = WaterIntakeModel.objects.filter(user=request.user).exists()
-    if not has_data:
+    data = WaterIntakeModel.objects.filter(user=request.user).exists()
+    if not data:
         messages.error(request, "You haven't added any water intake yet. you can add water intake here ")
         return redirect('addwater')
 

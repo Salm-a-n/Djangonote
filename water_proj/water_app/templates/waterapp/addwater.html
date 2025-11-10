@@ -4,9 +4,9 @@
 <div class="container mt-4">
     <h2>Add Water Intake</h2>
     {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-danger alert-dismissible fade show"><button type="button" class="close" data-dismiss="alert">&times;</button>{{ message }}</div>
-        {% endfor %}
+            <div class="alert alert-danger alert-dismissible fade show"><button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ messages }}
+            </div>
     {% endif %}
     <form method="post">{% csrf_token %}
         {{ form.as_p }}
